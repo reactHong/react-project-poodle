@@ -1,0 +1,19 @@
+{
+  "name": "react-project-poodle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactHong/react-project-poodle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reactHong/react-project-poodle/issues"
+  },
+  "homepage": "https://github.com/reactHong/react-project-poodle#readme"
+}
