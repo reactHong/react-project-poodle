@@ -17,7 +17,5 @@
     "url": "https://github.com/reactHong/react-project-poodle/issues"
   },
   "homepage": "https://github.com/reactHong/react-project-poodle#readme",
-  "dependencies": {
-    "react": "^17.0.1"
-  }
+  "dependencies": {}
 }
