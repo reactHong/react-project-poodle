@@ -17,5 +17,8 @@
     "url": "https://github.com/reactHong/react-project-poodle/issues"
   },
   "homepage": "https://github.com/reactHong/react-project-poodle#readme",
-  "dependencies": {}
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.5.0"
+  }
 }
