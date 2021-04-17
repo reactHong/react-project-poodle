@@ -1,4 +1,5 @@
 const { execSync } = require('child_process');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { DefinePlugin } = require('webpack');
 const { BannerPlugin } = require('webpack');
@@ -7,7 +8,7 @@ module.exports = {
   mode: 'development',
   entry: {
     main: './src/app.js',
-    main1: './src/app.js',
+    // main1: './src/app.js',
   },
   output: {
     path: path.resolve('./dist'),
@@ -42,5 +43,13 @@ module.exports = {
       TWOString: JSON.stringify('1+1'),
       'api.domain': JSON.stringify('http://dev.api.domain.com'),
     }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      templateParameters: {
+        env: process.env.NODE_ENV === 'development' ? '(개발용)' : '',
+      },
+    }),
   ],
 };
+
+console.log('webpack.config.js:', process.env.NODE_ENV);
