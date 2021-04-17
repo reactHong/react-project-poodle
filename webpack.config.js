@@ -1,8 +1,9 @@
-const { execSync } = require('child_process');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { execSync } = require('child_process');
 const { DefinePlugin } = require('webpack');
 const { BannerPlugin } = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -49,6 +50,7 @@ module.exports = {
         env: process.env.NODE_ENV === 'development' ? '(개발용)' : '',
       },
     }),
+    new CleanWebpackPlugin(),
   ],
 };
 
