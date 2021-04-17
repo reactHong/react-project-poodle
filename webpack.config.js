@@ -4,6 +4,7 @@ const { DefinePlugin } = require('webpack');
 const { BannerPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -19,7 +20,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          process.env.NODE_ENV === 'production'
+            ? MiniCssExtractPlugin.loader
+            : 'style-loader',
+          'css-loader',
+        ],
       },
       {
         test: /\.(jpg|jpeg|png|gif|svg)/i,
@@ -34,7 +40,7 @@ module.exports = {
   plugins: [
     new BannerPlugin({
       banner: `
-        Build Date: ${new Date().toDateString}
+        Build Date: ${new Date().toDateString()}
         Commit Version: ${execSync('git rev-parse --short HEAD')}
         Author: ${execSync('git config user.name')}
       `,
@@ -51,6 +57,13 @@ module.exports = {
       },
     }),
     new CleanWebpackPlugin(),
+    ...(process.env.NODE_ENV === 'production'
+      ? [
+          new MiniCssExtractPlugin({
+            filename: '[name].css',
+          }),
+        ]
+      : []),
   ],
 };
 
