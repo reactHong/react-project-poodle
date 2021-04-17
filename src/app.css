@@ -1,3 +1,18 @@
 body {
   background-color: black;
 }
+
+.img {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  background-image: url(./images/times-circle.png);
+}
+
+.img2 {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  background-image: url(./images/default-image.jpg);
+  background-size: contain;
+}

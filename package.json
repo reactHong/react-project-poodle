@@ -20,7 +20,9 @@
   "homepage": "https://github.com/reactHong/react-project-poodle#readme",
   "devDependencies": {
     "css-loader": "^5.2.2",
+    "file-loader": "^6.2.0",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0"
   }

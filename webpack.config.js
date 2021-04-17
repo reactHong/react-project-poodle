@@ -16,6 +16,14 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(jpg|jpeg|png|gif|svg)/i,
+        loader: 'url-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          limit: 10000,
+        },
+      },
     ],
   },
 };
