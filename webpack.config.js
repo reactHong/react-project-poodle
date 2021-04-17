@@ -1,4 +1,7 @@
+const { execSync } = require('child_process');
 const path = require('path');
+const { DefinePlugin } = require('webpack');
+const { BannerPlugin } = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -26,4 +29,18 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new BannerPlugin({
+      banner: `
+        Build Date: ${new Date().toDateString}
+        Commit Version: ${execSync('git rev-parse --short HEAD')}
+        Author: ${execSync('git config user.name')}
+      `,
+    }),
+    new DefinePlugin({
+      TWO: 1 + 1,
+      TWOString: JSON.stringify('1+1'),
+      'api.domain': JSON.stringify('http://dev.api.domain.com'),
+    }),
+  ],
 };

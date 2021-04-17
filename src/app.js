@@ -6,3 +6,8 @@ import * as math from './math.js';
 import './app.css';
 
 console.log(math.sum(1, 2));
+
+console.log(TWO);
+console.log(TWOString);
+console.log(api.domain);
+console.log(process.env.NODE_ENV);
